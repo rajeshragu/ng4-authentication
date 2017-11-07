@@ -1,0 +1,7 @@
+<p>
+  home works!
+</p>
+<div>
+  <button *ngxPermissionsOnly="['ADMINISTRATOR', 'ADJUSTOR', 'GUEST']" (click)="viewOrganization()">View organization</button> &nbsp;
+  <button *ngxPermissionsExcept="['GUEST']" (click)="addOrganization()">Add organization</button>
+</div>
