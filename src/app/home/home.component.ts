@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +9,10 @@ import { NgxPermissionsService } from 'ngx-permissions';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private router: Router,
-    private permissionsService: NgxPermissionsService,
+    private router: Router
   ) { }  
 
   ngOnInit() {
-    //const perm = ["ADMINISTRATOR", "TEAM MANAGER", "ADJUSTOR", "PROCESSOR", "GUEST"];
-    const perm = ["GUEST"];
-    this.permissionsService.loadPermissions(perm);
   }
 
   public addOrganization(){
@@ -26,5 +21,13 @@ export class HomeComponent implements OnInit {
 
   public viewOrganization(){
     this.router.navigate(['view-organization']);
+  }
+
+  public authorizedFunction(){
+    console.log('In Authorized block.');
+  }
+
+  public unauthorizedFunction(){
+    console.log('In Unauthorized block.');
   }
 }

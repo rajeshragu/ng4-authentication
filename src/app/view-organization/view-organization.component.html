@@ -2,6 +2,9 @@
   view-organization works!
 </p>
 <div>
+  <ng-template 
+  [ngxPermissionsExcept]="['GUEST']">
   <button (click)="addOrganization()">Add organization</button>
+</ng-template>
   <button (click)="home()">Home</button>
 </div>

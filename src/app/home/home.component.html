@@ -2,6 +2,16 @@
   home works!
 </p>
 <div>
-  <button *ngxPermissionsOnly="['ADMINISTRATOR', 'ADJUSTOR', 'GUEST']" (click)="viewOrganization()">View organization</button> &nbsp;
-  <button *ngxPermissionsExcept="['GUEST']" (click)="addOrganization()">Add organization</button>
+  <ng-template 
+      [ngxPermissionsOnly]="['ADMINISTRATOR', 'ADJUSTOR', 'GUEST']" 
+      (permissionsAuthorized)="authorizedFunction()" 
+      (permissionsUnauthorized)="unauthorizedFunction()">
+      <button (click)="viewOrganization()"> View organization </button> &nbsp;
+  </ng-template>
+  <ng-template 
+    [ngxPermissionsExcept]="['GUEST']"
+    (permissionsAuthorized)="authorizedFunction()" 
+    (permissionsUnauthorized)="unauthorizedFunction()">
+    <button (click)="addOrganization()">Add organization</button>
+  </ng-template>
 </div>
